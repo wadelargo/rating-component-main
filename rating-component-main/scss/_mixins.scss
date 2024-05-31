@@ -1,0 +1,12 @@
+@mixin dead-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin circle {
+  @include dead-center;
+  background: $MediumBlue;
+  padding: 1rem;
+  border-radius: 50%;
+}

@@ -1,0 +1,162 @@
+@import url("https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap");
+@import "mixins";
+
+$orange: hsl(25, 97%, 53%);
+$White: hsl(0, 0%, 100%);
+$LightGrey: hsl(217, 12%, 63%);
+$MediumGrey: #7c8798;
+$MediumBlue: #262d37;
+$DarkBlue: #1c232d;
+$VeryDarkBlue: #141519;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  @include dead-center;
+  height: 100vh;
+  max-width: 450px;
+  margin: 0 auto;
+  background-color: $VeryDarkBlue;
+  color: $White;
+  padding: 1.2rem;
+
+  h1 {
+    font-weight: 700;
+    font-size: 1.7rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 15px;
+    font-weight: 400;
+    color: $LightGrey;
+    line-height: 1.6;
+  }
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  transition: 0.2s ease-in-out;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.star {
+  @include dead-center;
+  @include circle;
+}
+
+.count {
+  @include dead-center;
+  @include circle;
+  width: 50px;
+  height: 50px;
+
+  & {
+    @media (max-width: 400px) {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.display {
+  display: none !important;
+}
+
+#container {
+  background: $DarkBlue;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 10px;
+
+  padding: 2rem;
+  border-radius: 30px;
+  width: 410px;
+  min-height: 400px;
+
+  .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 2rem 0;
+  }
+
+  .review {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 0.5rem;
+    margin-bottom: 2rem;
+
+    .count {
+      color: $LightGrey;
+      font-size: 16px;
+
+      &:focus {
+        background: $LightGrey;
+        color: $White;
+      }
+
+      &:hover {
+        background-color: $orange;
+        color: $White;
+      }
+    }
+  }
+
+  .submit {
+    @include dead-center;
+    background: $orange;
+    color: $White;
+    width: 100%;
+    height: 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    padding: 0.6rem 1rem 0.3rem;
+    font-size: 1rem;
+
+    &:hover,
+    &:focus {
+      background-color: $White;
+      color: $orange;
+    }
+  }
+
+  & {
+    @media (max-width: 500px) {
+      width: 100%;
+    }
+  }
+}
+
+#rated {
+  @include dead-center;
+  flex-direction: column;
+  text-align: center;
+
+  .rate-result {
+    color: $orange;
+    background: $MediumBlue;
+    padding: 0.3rem 1rem 0.2rem;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    margin-top: 2rem;
+  }
+
+  .text {
+    h1 {
+      align-self: center;
+    }
+  }
+}
